@@ -33,3 +33,23 @@ print("linha1:", linha1)
 print("linha2:", linha2)
 print("linha3:", linha3)
 print("linha4:", linha4)
+
+#etapa4 - painel consolidado da empresa
+empresa = startups["nome"]
+print(f"{empresa} é a atual ocupante da sala A1.")
+
+with open("dados.csv", "r", encoding="utf-8") as arquivo:
+    linhas = arquivo.readlines()[1:]
+    custo_total = 0.0
+
+    for linha in linhas:
+        linha = linha.strip()
+        if not linha:
+            continue
+        _, valor = linha.split(",", 1)
+        custo_total += float(valor.strip())
+
+print("\n=== painel consolidado da empresa ===")
+print(f"nome da empresa: {empresa}")
+print("sala ocupada: sala A1")
+print(f"valor total investido/gasto: R$ {custo_total:.2f}")
